@@ -343,9 +343,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBarrel: {fileID: 7932244918474144157}
-  moveSpeed: 10
-  rotationSpeed: 5
-  xMovementClamp: 15
+  moveSpeed: 12
+  rotationSpeed: 80
+  xMovementClamp: 10
+  xRotationClamp: 45
+  zRotationClamp: 45
 --- !u!1 &7932244918474144157
 GameObject:
   m_ObjectHideFlags: 0

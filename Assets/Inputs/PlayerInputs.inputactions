@@ -6,7 +6,7 @@
             "id": "4ea4569e-978c-4680-ba39-9f9487125ea9",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "CannonRotate",
                     "type": "Value",
                     "id": "e59c9695-ec28-45d8-9afa-0875715a18fc",
                     "expectedControlType": "Vector2",
@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
+                    "name": "CannonMove",
                     "type": "Value",
                     "id": "c51dfdec-6e89-4002-8efc-0990500a56bb",
                     "expectedControlType": "Vector2",
@@ -44,81 +44,70 @@
             ],
             "bindings": [
                 {
-                    "name": "WASD",
-                    "id": "c3ddd5f0-4639-45ec-8875-fcdc4afc755a",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "3241d35c-2ed7-4bd4-a81b-2ddeb0621903",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "c5057a85-2260-443d-bb1a-aa7851da4022",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "cde3a3a0-4786-4a02-acbc-c32fb826f45c",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "dcbe678c-3d1d-4185-8a4d-e1a8efd7aa22",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "f19e5d5a-de3a-4d59-8b0b-488172917621",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "CannonRotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "900d2eeb-7c0f-46fe-96fb-b1bec2c3e294",
-                    "path": "<Mouse>/delta",
+                    "name": "WASD",
+                    "id": "2a3ee9bd-716e-47dc-85fa-d269f390b610",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
+                    "action": "CannonRotate",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "42032091-1525-47e2-aa96-ac338705990c",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "7fe03329-8a5f-481d-a8ce-d3fa3a81b98b",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "90644d4c-f9cb-42b7-9244-76615907f4bb",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "333771a2-2a48-4d9e-a14a-9752517de4ea",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonRotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -127,7 +116,73 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "CannonMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "ArrowKeys",
+                    "id": "4ea4ff84-983b-49fa-ba13-368d7ce4ccc5",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "8fb61ee7-220e-471f-bdc2-8ffa9b77e397",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "a92f2c34-9ed0-47da-82a4-e6aee169b540",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "57a806fd-3f24-4dd6-a55a-2a53089ea243",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ac460684-efef-46c7-9995-b00726721fe5",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CannonMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a73b16e6-9382-495f-9f17-eec10a1f9c57",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -144,19 +199,8 @@
                 },
                 {
                     "name": "",
-                    "id": "a73b16e6-9382-495f-9f17-eec10a1f9c57",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c1776fdf-8600-4b9e-862c-6ef0e2bd4130",
-                    "path": "<Keyboard>/x",
+                    "id": "e0dfe039-4518-4671-a1e4-7db39e8c611a",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -166,8 +210,8 @@
                 },
                 {
                     "name": "",
-                    "id": "e0dfe039-4518-4671-a1e4-7db39e8c611a",
-                    "path": "<Gamepad>/buttonNorth",
+                    "id": "c1776fdf-8600-4b9e-862c-6ef0e2bd4130",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -1218,13 +1218,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16895555, y: -0, z: -0, w: 0.9856237}
-  m_LocalPosition: {x: 0, y: 5.19, z: -18.07}
+  m_LocalRotation: {x: 0.37630513, y: -0, z: -0, w: 0.92649585}
+  m_LocalPosition: {x: 0, y: 16.22, z: -23.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 19.454, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.21, y: 0, z: 0}
 --- !u!1 &1072850830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,6 +1537,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2611076498189892184, guid: eb076f14d40967044a666d0b828b31cd, type: 3}
+      propertyPath: moveSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611076498189892184, guid: eb076f14d40967044a666d0b828b31cd, type: 3}
+      propertyPath: xMovementClamp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6589431455389067639, guid: eb076f14d40967044a666d0b828b31cd, type: 3}
       propertyPath: m_Name
       value: PlayerCannon
@@ -1551,7 +1559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8495751646394501899, guid: eb076f14d40967044a666d0b828b31cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.43
+      value: -15.63
       objectReference: {fileID: 0}
     - target: {fileID: 8495751646394501899, guid: eb076f14d40967044a666d0b828b31cd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1586,6 +1594,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb076f14d40967044a666d0b828b31cd, type: 3}
+--- !u!1 &1349474350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1349474351}
+  - component: {fileID: 1349474353}
+  - component: {fileID: 1349474352}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1349474351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349474350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1349474352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349474350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f625944bf7a382546a28f8d1d1b5992a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1349474353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349474350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4dbf0dae9b5778a4e8fb42db5788b7bb, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 963194227}
 --- !u!1 &1419450156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,6 +2349,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1349474351}
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 141346189}

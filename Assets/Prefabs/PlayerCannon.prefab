@@ -116,6 +116,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2088780738076886620}
+  - {fileID: 7490839584134882545}
   m_Father: {fileID: 4566739331134375245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4284717114032745092
@@ -191,6 +192,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &3378500820608184307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7490839584134882545}
+  m_Layer: 0
+  m_Name: CannonProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7490839584134882545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378500820608184307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.027, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3797444228210539281}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3872562500241962412
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8495751646394501899}
   - component: {fileID: 2611076498189892184}
+  - component: {fileID: 6288996142573480641}
   m_Layer: 0
   m_Name: PlayerCannon
   m_TagString: Untagged
@@ -346,8 +379,23 @@ MonoBehaviour:
   moveSpeed: 12
   rotationSpeed: 80
   xMovementClamp: 10
-  xRotationClamp: 45
-  zRotationClamp: 45
+  xRotationClamp: 75
+  zRotationClamp: 75
+--- !u!114 &6288996142573480641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589431455389067639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ef0403bf9375841a33469a62133a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 2357354217491123402, guid: b023c7bd3c8233d4d915f70aa4a168ad, type: 3}
+  spawnPoint: {fileID: 7490839584134882545}
+  shootForce: 100
 --- !u!1 &7932244918474144157
 GameObject:
   m_ObjectHideFlags: 0

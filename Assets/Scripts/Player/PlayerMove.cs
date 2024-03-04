@@ -52,8 +52,6 @@ public class PlayerMove : MonoBehaviour
 		CheckCannonRotate();
 	}
 
-	#region CannonMove
-
 	private void CheckCannonMove()
 	{
 		if(cannonMove != null && cannonMove.IsPressed()) 
@@ -71,10 +69,6 @@ public class PlayerMove : MonoBehaviour
 		newXPosition = Mathf.Clamp(transform.position.x + moveAmount, -xMovementClamp, xMovementClamp);
 		transform.position = new Vector3(newXPosition, transform.position.y, transform.position.z);
 	}
-
-	#endregion
-
-	#region CannonRotate
 
 	private void CheckCannonRotate()
 	{
@@ -107,6 +101,4 @@ public class PlayerMove : MonoBehaviour
 		Quaternion targetRotation = Quaternion.Euler(targetXRotation, cannonBarrel.transform.eulerAngles.y, targetZRotation);
 		cannonBarrel.transform.rotation = Quaternion.Slerp(cannonBarrel.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 	}
-
-	#endregion
 }

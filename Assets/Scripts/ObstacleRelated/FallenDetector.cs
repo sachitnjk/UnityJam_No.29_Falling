@@ -9,12 +9,10 @@ public class FallenDetector : MonoBehaviour
 		if(other.gameObject.CompareTag("Top"))
 		{
 			GameManager.Instance.OnTopFallen();
-			Debug.Log(other.gameObject.name);
 		}
 		else if(other.gameObject.CompareTag("Mid"))
 		{
 			GameManager.Instance.OnMidFallen();
-			Debug.Log(other.gameObject.name);
 		}
 	}
 }

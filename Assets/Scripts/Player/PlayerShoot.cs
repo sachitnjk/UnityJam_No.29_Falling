@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,9 +12,10 @@ public class PlayerShoot : MonoBehaviour
 	[SerializeField] private GameObject projectilePrefab;
 	[SerializeField] private Transform spawnPoint;
 
-	[SerializeField] private float shootForce;
+	[SerializeField] private float shootVelocity;
 
 	private GameObject cannonProjectile;
+	private Projectile projectileScript;
 
 	private void Start()
 	{
@@ -34,19 +36,13 @@ public class PlayerShoot : MonoBehaviour
 		if(shootAction != null && shootAction.WasPerformedThisFrame())
 		{
 			cannonProjectile = ObjectPooler.Instance.GetPooledObject(projectilePrefab);
+			projectileScript = cannonProjectile.GetComponent<Projectile>();
 
 			if(cannonProjectile != null) 
 			{
-				cannonProjectile.transform.position = spawnPoint.position;
-
 				cannonProjectile.SetActive(true);
-
-				Rigidbody cannonRb = cannonProjectile.GetComponent<Rigidbody>();
-				if(cannonRb != null)
-				{
-					cannonRb.velocity = Vector3.zero;
-					cannonRb.AddForce(spawnPoint.up * shootForce, ForceMode.Impulse);
-				}
+				cannonProjectile.transform.position = spawnPoint.position;
+				projectileScript.Init(shootVelocity, spawnPoint);
 
 			}
 		}

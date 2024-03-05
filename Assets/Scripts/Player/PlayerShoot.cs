@@ -8,6 +8,7 @@ public class PlayerShoot : MonoBehaviour
 {
 	private PlayerInput playerInput;
 	private InputAction shootAction;
+	private InputAction aimAction;
 
 	[SerializeField] private GameObject projectilePrefab;
 	[SerializeField] private Transform spawnPoint;
@@ -23,12 +24,22 @@ public class PlayerShoot : MonoBehaviour
 		if(playerInput != null) 
 		{
 			shootAction = playerInput.actions["Shoot"];
+			aimAction = playerInput.actions["Aim"];
 		}
 	}
 
 	private void Update()
 	{
 		Shoot();
+		Aim();
+	}
+
+	private void Aim()
+	{
+		if(aimAction != null && aimAction.IsPressed())
+		{
+			Debug.Log("Aim being pressed, trajectory shown while aiming");
+		}
 	}
 
 	private void Shoot()

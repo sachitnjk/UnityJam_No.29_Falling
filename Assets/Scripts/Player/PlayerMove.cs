@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
 	[SerializeField] private float moveSpeed;
 	[Range(1f, 100f)]
 	[SerializeField] private float rotationSpeed;
-	[Range(10f, 40f)]
+	[Range(2f, 15f)]
 	[SerializeField] private float xMovementClamp;
 	[Range(10f, 90f)]
 	[SerializeField] private float xRotationClamp;

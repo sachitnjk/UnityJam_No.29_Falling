@@ -395,7 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 2357354217491123402, guid: b023c7bd3c8233d4d915f70aa4a168ad, type: 3}
   spawnPoint: {fileID: 7490839584134882545}
-  shootVelocity: 20
+  shootVelocity: 35
 --- !u!1 &7932244918474144157
 GameObject:
   m_ObjectHideFlags: 0

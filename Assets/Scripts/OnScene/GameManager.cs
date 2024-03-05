@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance;
 
-	private int fallenTopObjects;
-	private int fallenMidObjects;
+	public int fallenTopObjects{ get; private set; }
+	public int fallenMidObjects { get; private set; }
 
 	private void Awake()
 	{
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 		ResetFallenObjectCounts();
 	}
 
-	private void OnLevelComplete()
+	private void HandleOnLevelComplete()
 	{
 		ResetFallenObjectCounts();
 	}
@@ -34,12 +34,12 @@ public class GameManager : MonoBehaviour
 		fallenMidObjects = 0;
 	}
 
-	public void OnTopFallen()
+	public void IncrementTopFallenObjectsCount()
 	{
-		Debug.Log("Top Object fallen");
+		fallenTopObjects++;
 	}
-	public void OnMidFallen()
+	public void IncrementMidFallenObjectsCount()
 	{
-		Debug.Log("Mid Object fallen");
+		fallenMidObjects++;
 	}
 }

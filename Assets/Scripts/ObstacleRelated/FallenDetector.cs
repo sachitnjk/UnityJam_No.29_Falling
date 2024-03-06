@@ -23,19 +23,21 @@ public class FallenDetector : MonoBehaviour
 	public void OnTopFallen()
 	{
 		GameManager.Instance.IncrementTopFallenObjectsCount();
-		Debug.Log("Top Object fallen");
 	}
 	public void OnMidFallen()
 	{
 		GameManager.Instance.IncrementMidFallenObjectsCount();
-		Debug.Log("Mid Object fallen");
 	}
 
 	private void NextLevelCheck()
 	{
 		if(GameManager.Instance.currentFallenTopObjects >= maxFallenTopObjects && GameManager.Instance.currentFallenMidObjects >= maxFallenMidObjects)
 		{
-			Debug.Log("Next Level Available");
+			GameManager.Instance.SetIsNextLevelAvailable(true);
+		}
+		else
+		{
+			GameManager.Instance.SetIsNextLevelAvailable(false);
 		}
 	}
 }

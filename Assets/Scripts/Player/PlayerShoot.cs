@@ -55,14 +55,20 @@ public class PlayerShoot : MonoBehaviour
 		if(shootAction != null && shootAction.WasPerformedThisFrame())
 		{
 			cannonProjectile = ObjectPooler.Instance.GetPooledObject(projectilePrefab);
-			projectileScript = cannonProjectile.GetComponent<Projectile>();
 
 			if(cannonProjectile != null) 
 			{
+				GameManager.Instance.SetIsReloadStatus(false);
+
+				projectileScript = cannonProjectile.GetComponent<Projectile>();
+
 				cannonProjectile.SetActive(true);
 				cannonProjectile.transform.position = spawnPoint.position;
 				projectileScript.Init(spawnPoint.up * shootVelocity, false);
-
+			}
+			else
+			{
+				GameManager.Instance.SetIsReloadStatus(true);
 			}
 		}
 	}

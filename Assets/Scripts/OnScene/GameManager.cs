@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 	[field: SerializeField] public Transform obstacleWallParent{ get; private set; }
 	public int currentFallenTopObjects{ get; private set; }
 	public int currentFallenMidObjects { get; private set; }
+	public bool IsReloading { get; private set; }
+	public bool IsNextLevelAvailable { get; private set; }
 
 	private void Awake()
 	{
@@ -35,7 +37,14 @@ public class GameManager : MonoBehaviour
 		currentFallenTopObjects = 0;
 		currentFallenMidObjects = 0;
 	}
-
+	public void SetIsNextLevelAvailable(bool isNextLevelAvailable)
+	{
+		IsNextLevelAvailable = isNextLevelAvailable;
+	}
+	public void SetIsReloadStatus(bool isReloading)
+	{
+		IsReloading = isReloading;
+	}
 	public void IncrementTopFallenObjectsCount()
 	{
 		currentFallenTopObjects++;

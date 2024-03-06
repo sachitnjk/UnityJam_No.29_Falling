@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance;
 
+	public Projectile prefabProjectileScript;
+	[field: SerializeField] public Transform obstacleWallParent{ get; private set; }
 	public int fallenTopObjects{ get; private set; }
 	public int fallenMidObjects { get; private set; }
 

@@ -10,6 +10,7 @@ public class PlayerShoot : MonoBehaviour
 	private InputAction shootAction;
 	private InputAction aimAction;
 
+	[SerializeField] private SimulatedProjection trajectorySimulation;
 	[SerializeField] private GameObject projectilePrefab;
 	[SerializeField] private Transform spawnPoint;
 
@@ -17,6 +18,7 @@ public class PlayerShoot : MonoBehaviour
 
 	private GameObject cannonProjectile;
 	private Projectile projectileScript;
+	private Projectile prefabProjectileScript;
 
 	private void Start()
 	{
@@ -26,6 +28,8 @@ public class PlayerShoot : MonoBehaviour
 			shootAction = playerInput.actions["Shoot"];
 			aimAction = playerInput.actions["Aim"];
 		}
+
+		prefabProjectileScript = GameManager.Instance.prefabProjectileScript;
 	}
 
 	private void Update()
@@ -38,7 +42,11 @@ public class PlayerShoot : MonoBehaviour
 	{
 		if(aimAction != null && aimAction.IsPressed())
 		{
-			Debug.Log("Aim being pressed, trajectory shown while aiming");
+			trajectorySimulation.SimulateTrajectory(prefabProjectileScript, spawnPoint.position, spawnPoint.up * shootVelocity);
+		}
+		else if(aimAction.WasReleasedThisFrame())
+		{
+			trajectorySimulation.ResetSimulationAndTrajectory();
 		}
 	}
 
@@ -53,7 +61,7 @@ public class PlayerShoot : MonoBehaviour
 			{
 				cannonProjectile.SetActive(true);
 				cannonProjectile.transform.position = spawnPoint.position;
-				projectileScript.Init(shootVelocity, spawnPoint);
+				projectileScript.Init(spawnPoint.up * shootVelocity, false);
 
 			}
 		}

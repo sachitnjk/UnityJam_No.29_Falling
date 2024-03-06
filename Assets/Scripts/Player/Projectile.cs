@@ -6,11 +6,12 @@ public class Projectile : MonoBehaviour
 {
 	[SerializeField] private Rigidbody rb;
 
-	private float projectileSpeed;
+	private bool _isSimulated;
 
-	public void Init(float velocity, Transform spawnPoint)
+	public void Init(Vector3 velocity, bool isSimulated)
 	{
-		rb.velocity = spawnPoint.up * velocity;
+		_isSimulated = isSimulated;
+		rb.velocity = velocity;
 		StartCoroutine(ProjectileLifetime());
 	}
 
@@ -18,5 +19,11 @@ public class Projectile : MonoBehaviour
 	{
 		yield return new WaitForSeconds(5f);
 		this.gameObject.SetActive(false);
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if(_isSimulated) { return; }
+		//Instantiate or enable VFX and Sounds here
 	}
 }

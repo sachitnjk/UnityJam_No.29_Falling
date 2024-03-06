@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FallenDetector : MonoBehaviour
 {
+	[SerializeField] private int maxFallenTopObjects;
+	[SerializeField] private int maxFallenMidObjects;
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.CompareTag("Top"))
@@ -14,6 +17,7 @@ public class FallenDetector : MonoBehaviour
 		{
 			OnMidFallen();
 		}
+		NextLevelCheck();
 	}
 
 	public void OnTopFallen()
@@ -25,5 +29,13 @@ public class FallenDetector : MonoBehaviour
 	{
 		GameManager.Instance.IncrementMidFallenObjectsCount();
 		Debug.Log("Mid Object fallen");
+	}
+
+	private void NextLevelCheck()
+	{
+		if(GameManager.Instance.currentFallenTopObjects >= maxFallenTopObjects && GameManager.Instance.currentFallenMidObjects >= maxFallenMidObjects)
+		{
+			Debug.Log("Next Level Available");
+		}
 	}
 }

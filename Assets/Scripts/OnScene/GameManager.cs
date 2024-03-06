@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 
 	public Projectile prefabProjectileScript;
 	[field: SerializeField] public Transform obstacleWallParent{ get; private set; }
-	public int fallenTopObjects{ get; private set; }
-	public int fallenMidObjects { get; private set; }
+	public int currentFallenTopObjects{ get; private set; }
+	public int currentFallenMidObjects { get; private set; }
 
 	private void Awake()
 	{
@@ -32,16 +32,16 @@ public class GameManager : MonoBehaviour
 	}
 	private void ResetFallenObjectCounts()
 	{
-		fallenTopObjects = 0;
-		fallenMidObjects = 0;
+		currentFallenTopObjects = 0;
+		currentFallenMidObjects = 0;
 	}
 
 	public void IncrementTopFallenObjectsCount()
 	{
-		fallenTopObjects++;
+		currentFallenTopObjects++;
 	}
 	public void IncrementMidFallenObjectsCount()
 	{
-		fallenMidObjects++;
+		currentFallenMidObjects++;
 	}
 }

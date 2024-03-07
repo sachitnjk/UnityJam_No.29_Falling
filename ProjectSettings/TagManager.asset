@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Top
   - Mid
+  - Projectile
   layers:
   - Default
   - TransparentFX

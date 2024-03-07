@@ -24,6 +24,12 @@ public class FallenDetector : MonoBehaviour
 		EventManager.Instance.OnNextlevelTrigger += HandleOnNextLevelTrigger;
 	}
 
+	private void Update()
+	{
+		Debug.Log(currentFallenTopCount);
+		Debug.Log(currentFallenMidCount);
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.CompareTag("Top"))

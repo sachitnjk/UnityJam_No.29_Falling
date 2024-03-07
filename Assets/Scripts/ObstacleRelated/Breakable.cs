@@ -18,6 +18,7 @@ public class Breakable : MonoBehaviour
 			isBroken = true;
 			GameObject altVersion = ObjectPooler.Instance.GetPooledObject(brokenVersion);
 			altVersion.transform.position = this.gameObject.transform.position;
+			altVersion.transform.localScale = this.gameObject.transform.localScale;
 			altVersion.gameObject.SetActive(true);
 
 			var brokenRbs = altVersion.GetComponentsInChildren<Rigidbody>();

@@ -60,7 +60,6 @@ public class PlayerShoot : MonoBehaviour
 
 			if(cannonProjectile != null) 
 			{
-				//GameManager.Instance.SetIsReloadStatus(false);
 				isReloading = false;
 
 				projectileScript = cannonProjectile.GetComponent<Projectile>();

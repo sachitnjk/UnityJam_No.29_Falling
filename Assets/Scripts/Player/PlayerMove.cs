@@ -13,6 +13,9 @@ public class PlayerMove : MonoBehaviour
 	private float moveX;
 	private float newXPosition;
 	private float moveAmount;
+	private float xClampMin;
+	private float xClampMax;
+
 	private Vector2 rotateInput;
 	private float rotationX;
 	private float rotationZ;
@@ -44,6 +47,9 @@ public class PlayerMove : MonoBehaviour
 			cannonMove = playerInput.actions["CannonMove"];
 			cannonRotate = playerInput.actions["CannonRotate"];
 		}
+
+		xClampMin = transform.position.x - xMovementClamp;
+		xClampMax = transform.position.x + xMovementClamp;
 	}
 
 	private void Update()
@@ -66,7 +72,7 @@ public class PlayerMove : MonoBehaviour
 		moveX = moveInput.x;
 		moveAmount = moveX * moveSpeed * Time.deltaTime;
 
-		newXPosition = Mathf.Clamp(transform.position.x + moveAmount, -xMovementClamp, xMovementClamp);
+		newXPosition = Mathf.Clamp(transform.position.x + moveAmount, xClampMin, xClampMax);
 		transform.position = new Vector3(newXPosition, transform.position.y, transform.position.z);
 	}
 

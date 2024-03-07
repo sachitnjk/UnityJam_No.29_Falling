@@ -6857,6 +6857,7 @@ GameObject:
   - component: {fileID: 1349474352}
   - component: {fileID: 1349474355}
   - component: {fileID: 1349474354}
+  - component: {fileID: 1349474356}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6945,6 +6946,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cb050e6dcb81eb40b44ac08527d70c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelPanel: {fileID: 1059621159}
+--- !u!114 &1349474356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349474350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130076e3fa6321c429aecfff153d75a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1396543082
@@ -7267,7 +7281,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1407496400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1349474356}
+        m_TargetAssemblyTypeName: EventManager, Assembly-CSharp
+        m_MethodName: InvokeOnNextLevelTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1407496400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9221,9 +9247,9 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1349474351}
   - {fileID: 705507995}
   - {fileID: 141346189}
+  - {fileID: 1349474351}
   - {fileID: 1260913884}
   - {fileID: 508261597}
   - {fileID: 477466095}

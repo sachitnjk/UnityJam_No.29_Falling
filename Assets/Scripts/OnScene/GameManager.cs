@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 	public int currentFallenTopObjects{ get; private set; }
 	public int currentFallenMidObjects { get; private set; }
 	public bool IsReloading { get; private set; }
-	public bool IsNextLevelAvailable { get; private set; }
 
 	private void Awake()
 	{
@@ -24,33 +23,26 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
-
-		ResetFallenObjectCounts();
 	}
 
-	private void HandleOnLevelComplete()
+	//Remove update function after testing
+	private void Update()
 	{
-		ResetFallenObjectCounts();
+		Debug.Log(currentFallenTopObjects);
+		Debug.Log(currentFallenMidObjects);
 	}
-	private void ResetFallenObjectCounts()
-	{
-		currentFallenTopObjects = 0;
-		currentFallenMidObjects = 0;
-	}
-	public void SetIsNextLevelAvailable(bool isNextLevelAvailable)
-	{
-		IsNextLevelAvailable = isNextLevelAvailable;
-	}
+
+	//---Setter functions---
 	public void SetIsReloadStatus(bool isReloading)
 	{
 		IsReloading = isReloading;
 	}
-	public void IncrementTopFallenObjectsCount()
+	public void SetCurrentFallenTopCount(int fallenTopCount)
 	{
-		currentFallenTopObjects++;
+		currentFallenTopObjects = fallenTopCount;
 	}
-	public void IncrementMidFallenObjectsCount()
+	public void SetCurrentFallenMidCount(int fallenMidCount)
 	{
-		currentFallenMidObjects++;
+		currentFallenMidObjects = fallenMidCount;
 	}
 }

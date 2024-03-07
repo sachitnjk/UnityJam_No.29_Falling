@@ -7,6 +7,23 @@ public class FallenDetector : MonoBehaviour
 	[SerializeField] private int maxFallenTopObjects;
 	[SerializeField] private int maxFallenMidObjects;
 
+	private int currentFallenTopCount;
+	private int currentFallenMidCount;
+
+	private void Start()
+	{
+		if(currentFallenTopCount > 0 || currentFallenMidCount > 0)
+		{
+			ResetFallenObjectsCount(0);
+		}
+
+		EventManager.Instance.OnNextlevelTrigger += HandleOnNextLevelTrigger;
+	}
+	private void OnDestroy()
+	{
+		EventManager.Instance.OnNextlevelTrigger += HandleOnNextLevelTrigger;
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.CompareTag("Top"))
@@ -18,26 +35,34 @@ public class FallenDetector : MonoBehaviour
 			OnMidFallen();
 		}
 		NextLevelCheck();
+
+		GameManager.Instance.SetCurrentFallenTopCount(currentFallenTopCount);
+		GameManager.Instance.SetCurrentFallenMidCount(currentFallenMidCount);
 	}
 
-	public void OnTopFallen()
+	private void OnTopFallen()
 	{
-		GameManager.Instance.IncrementTopFallenObjectsCount();
+		currentFallenTopCount++;
 	}
-	public void OnMidFallen()
+	private void OnMidFallen()
 	{
-		GameManager.Instance.IncrementMidFallenObjectsCount();
+		currentFallenMidCount++;
 	}
-
+	private void ResetFallenObjectsCount(int resetCount)
+	{
+		currentFallenTopCount = resetCount;
+		currentFallenMidCount = resetCount;
+	}
 	private void NextLevelCheck()
 	{
-		if(GameManager.Instance.currentFallenTopObjects >= maxFallenTopObjects && GameManager.Instance.currentFallenMidObjects >= maxFallenMidObjects)
+		if(currentFallenTopCount >= maxFallenTopObjects && currentFallenMidCount >= maxFallenMidObjects)
 		{
-			GameManager.Instance.SetIsNextLevelAvailable(true);
+			EventManager.Instance.InvokeOnNextLevelAvailable();
 		}
-		else
-		{
-			GameManager.Instance.SetIsNextLevelAvailable(false);
-		}
+	}
+
+	private void HandleOnNextLevelTrigger()
+	{
+		ResetFallenObjectsCount(0);
 	}
 }

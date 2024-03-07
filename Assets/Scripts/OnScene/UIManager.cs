@@ -23,18 +23,25 @@ public class UIManager : MonoBehaviour
 	private void Start()
 	{
 		nextLevelPanel.SetActive(false);
+
+		EventManager.Instance.OnNextLevelAvailable += HandleOnNextLevelAvailable;
+	}
+	private void OnDestroy()
+	{
+		EventManager.Instance.OnNextLevelAvailable -= HandleOnNextLevelAvailable;
 	}
 
-	private void Update()
+	//Button OnClick functions
+	public void ResetNextLevelPanel()
 	{
-		//Note to self: Make this into an event later and replace the IsNextLevelAvailable
-		if(GameManager.Instance.IsNextLevelAvailable)
-		{
-			nextLevelPanel.SetActive(true);
-		}
-		else
-		{
-			nextLevelPanel.SetActive(false);
-		}
+		EventManager.Instance.InvokeOnNextLevelTrigger();
+		nextLevelPanel.SetActive(false);
 	}
+
+	//Event handles
+	private void HandleOnNextLevelAvailable()
+	{
+		nextLevelPanel.SetActive(true);
+	}
+
 }

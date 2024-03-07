@@ -20,6 +20,8 @@ public class PlayerShoot : MonoBehaviour
 	private Projectile projectileScript;
 	private Projectile prefabProjectileScript;
 
+	private bool isReloading;
+
 	private void Start()
 	{
 		playerInput = InputProvider.GetPlayerInput();
@@ -58,7 +60,8 @@ public class PlayerShoot : MonoBehaviour
 
 			if(cannonProjectile != null) 
 			{
-				GameManager.Instance.SetIsReloadStatus(false);
+				//GameManager.Instance.SetIsReloadStatus(false);
+				isReloading = false;
 
 				projectileScript = cannonProjectile.GetComponent<Projectile>();
 
@@ -68,8 +71,10 @@ public class PlayerShoot : MonoBehaviour
 			}
 			else
 			{
-				GameManager.Instance.SetIsReloadStatus(true);
+				isReloading=true;
 			}
+
+			GameManager.Instance.SetIsReloadStatus(isReloading);
 		}
 	}
 }

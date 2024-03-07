@@ -25,13 +25,6 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	//Remove update function after testing
-	private void Update()
-	{
-		Debug.Log(currentFallenTopObjects);
-		Debug.Log(currentFallenMidObjects);
-	}
-
 	//---Setter functions---
 	public void SetIsReloadStatus(bool isReloading)
 	{

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4147690408287976657}
   - component: {fileID: 7619543287010415300}
   - component: {fileID: 1023019865631554814}
+  - component: {fileID: -27987556452265768}
   m_Layer: 0
   m_Name: MidBox
   m_TagString: Mid
@@ -149,3 +150,16 @@ MonoBehaviour:
   brokenVersion: {fileID: 2799778069677783768, guid: 30abe820f675d974aacaba3b31982dc3, type: 3}
   breakForce: 10
   onCollisionMultiplier: 100
+--- !u!114 &-27987556452265768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107278992638703378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09643ad68b5bb7449aef787ff377cdd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 200

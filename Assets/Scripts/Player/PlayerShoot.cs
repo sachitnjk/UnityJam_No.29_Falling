@@ -32,6 +32,8 @@ public class PlayerShoot : MonoBehaviour
 		}
 
 		prefabProjectileScript = GameManager.Instance.prefabProjectileScript;
+
+		GameManager.Instance.projectilePool = GetProjectilePool();
 	}
 
 	private void Update()
@@ -78,5 +80,11 @@ public class PlayerShoot : MonoBehaviour
 
 			GameManager.Instance.SetIsReloadStatus(isReloading);
 		}
+	}
+
+	//Change
+	public List<GameObject> GetProjectilePool()
+	{
+		return ObjectPooler.Instance.GetObjectPool(projectilePrefab);
 	}
 }

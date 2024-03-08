@@ -61,4 +61,14 @@ public class ObjectPooler : MonoBehaviour
 
 		return null;
 	}
+
+	public List<GameObject> GetObjectPool(GameObject prefab)
+	{
+		if (pooledObjects.ContainsKey(prefab))
+		{
+			return pooledObjects[prefab];
+		}
+
+		return null;
+	}
 }

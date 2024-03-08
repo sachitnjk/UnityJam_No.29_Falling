@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4890026243006398951}
   - component: {fileID: 766764704113200667}
   - component: {fileID: 3740190313005731815}
+  - component: {fileID: -6677024009058308365}
   m_Layer: 0
   m_Name: BaseBox
   m_TagString: Untagged
@@ -149,3 +150,16 @@ MonoBehaviour:
   brokenVersion: {fileID: 756046887708269948, guid: 799e602662238b64ab748d003111fe03, type: 3}
   breakForce: 10
   onCollisionMultiplier: 100
+--- !u!114 &-6677024009058308365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958067237701341571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09643ad68b5bb7449aef787ff377cdd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 100

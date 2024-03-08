@@ -33,18 +33,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DebugX",
+                    "name": "Aim",
                     "type": "Button",
-                    "id": "98f8d55f-9c80-4a5c-96df-20f3a57bdcef",
+                    "id": "8b620766-2f83-4a9f-9c19-641f7e6d2cd6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Aim",
+                    "name": "DebugX",
                     "type": "Button",
-                    "id": "8b620766-2f83-4a9f-9c19-641f7e6d2cd6",
+                    "id": "98f8d55f-9c80-4a5c-96df-20f3a57bdcef",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -198,11 +198,55 @@
                 {
                     "name": "",
                     "id": "f461e72f-fa18-4990-9a8d-12991eb9782d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce80d0aa-7776-4a36-a157-1849a3deef53",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20d1301e-5dbb-487f-a481-b21d3cbb59a6",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2691dbb1-4fe7-49c1-9623-32b1117ca2b4",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5e2a7b8-0b5e-4340-bba2-d3b8feef6208",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -225,28 +269,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "DebugX",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "20d1301e-5dbb-487f-a481-b21d3cbb59a6",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d5e2a7b8-0b5e-4340-bba2-d3b8feef6208",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

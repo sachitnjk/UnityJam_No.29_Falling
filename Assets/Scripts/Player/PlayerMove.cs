@@ -54,8 +54,11 @@ public class PlayerMove : MonoBehaviour
 
 	private void Update()
 	{
-		CheckCannonMove();
-		CheckCannonRotate();
+		if(GameManager.Instance != null && GameManager.Instance.CanMove)
+		{
+			CheckCannonMove();
+			CheckCannonRotate();
+		}
 	}
 
 	private void CheckCannonMove()

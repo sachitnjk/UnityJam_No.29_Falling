@@ -36,8 +36,11 @@ public class PlayerShoot : MonoBehaviour
 
 	private void Update()
 	{
-		Shoot();
-		Aim();
+		if (GameManager.Instance != null && GameManager.Instance.CanMove)
+		{
+			Shoot();
+			Aim();
+		}
 	}
 
 	private void Aim()

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	public int currentFallenTopObjects{ get; private set; }
 	public int currentFallenMidObjects { get; private set; }
 	public bool IsReloading { get; private set; }
+	public bool CanMove { get; private set; }
 
 	private void Awake()
 	{
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
+
+		CanMove = true;
 	}
 
 	//---Setter functions---
@@ -37,5 +40,9 @@ public class GameManager : MonoBehaviour
 	public void SetCurrentFallenMidCount(int fallenMidCount)
 	{
 		currentFallenMidObjects = fallenMidCount;
+	}
+	public void SetCanMoveStatus(bool canMove)
+	{
+		CanMove = canMove;
 	}
 }

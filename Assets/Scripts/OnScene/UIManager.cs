@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
 	//Button OnClick functions
 	public void ResetNextLevelPanel()
 	{
+		GameManager.Instance.SetCanMoveStatus(true);
 		EventManager.Instance.InvokeOnNextLevelTrigger();
 		nextLevelPanel.SetActive(false);
 	}
@@ -41,6 +42,7 @@ public class UIManager : MonoBehaviour
 	//Event handles
 	private void HandleOnNextLevelAvailable()
 	{
+		GameManager.Instance.SetCanMoveStatus(false);
 		nextLevelPanel.SetActive(true);
 	}
 

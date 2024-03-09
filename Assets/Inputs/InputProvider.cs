@@ -12,6 +12,7 @@ public class InputProvider : MonoBehaviour
 		if (_playerInput == null)
 		{
 			_playerInput = GetComponent<PlayerInput>();
+			DontDestroyOnLoad(this);
 		}
 		else
 			Destroy(this.gameObject);

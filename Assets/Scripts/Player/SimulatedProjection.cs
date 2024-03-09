@@ -6,10 +6,9 @@ public class SimulatedProjection : MonoBehaviour
 	private Scene simulationScene;
 	private PhysicsScene physicsScene;
 
-	private Transform obstacleWallParent;
-
 	[SerializeField] private Transform projectileSpawnPoint;
 	[SerializeField] private LineRenderer trajectoryLine;
+	[SerializeField] private Transform obstacleWallParent;
 	[SerializeField] private int maxPhysicsFrameIterations = 100;
 
 	private void Start()
@@ -20,7 +19,6 @@ public class SimulatedProjection : MonoBehaviour
 		}
 		else
 		{
-			obstacleWallParent = GameManager.Instance.obstacleWallParent;
 			CreatePhysicsScene();
 		}
 	}

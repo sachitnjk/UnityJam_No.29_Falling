@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2ce646aa9085ba84b9baa01eb5d32194
+guid: 639c79d353b28d54eb29ffa7da89900d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Handwrittenfontvers2
+  - Handwrittenfontbold
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

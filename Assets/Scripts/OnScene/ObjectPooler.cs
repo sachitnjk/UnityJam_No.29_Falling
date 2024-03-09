@@ -23,6 +23,7 @@ public class ObjectPooler : MonoBehaviour
 		if (Instance == null)
 		{
 			Instance = this;
+			DontDestroyOnLoad(this);
 		}
 		pooledObjects = new Dictionary<GameObject, List<GameObject>>();
 
@@ -45,6 +46,15 @@ public class ObjectPooler : MonoBehaviour
 		}
 	}
 
+	private void Start()
+	{
+		EventManager.Instance.OnNextlevelTrigger += HandleOnNextDayTrigger;
+	}
+	private void OnDestroy()
+	{
+		EventManager.Instance.OnNextlevelTrigger -= HandleOnNextDayTrigger;
+	}
+
 	public GameObject GetPooledObject(GameObject prefab)
 	{
 		if (pooledObjects.ContainsKey(prefab))
@@ -60,5 +70,20 @@ public class ObjectPooler : MonoBehaviour
 		}
 
 		return null;
+	}
+
+	public void ResetAllPooledObjects()
+	{
+		foreach (var kvp in pooledObjects)
+		{
+			foreach (var obj in kvp.Value)
+			{
+				obj.SetActive(false);
+			}
+		}
+	}
+	private void HandleOnNextDayTrigger()
+	{
+		ResetAllPooledObjects();
 	}
 }

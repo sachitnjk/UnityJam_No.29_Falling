@@ -12,13 +12,12 @@ public class ExplosiveBox : MonoBehaviour
 	[SerializeField] private GameObject explosionEffect;
 
 	private const int maxDetectedColliders = 300;
-
 	private void OnCollisionEnter(Collision collision)
 	{
 		if(collision.relativeVelocity.magnitude >= triggerForce)
 		{
-			Collider[] envobjects = new Collider[maxDetectedColliders];
 
+			Collider[] envobjects = new Collider[maxDetectedColliders];
 			int detectedColliders = Physics.OverlapSphereNonAlloc(transform.position, explodeRadius, envobjects);
 
 			for (int i = 0; i < detectedColliders; i++)

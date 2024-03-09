@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
 	public float elaspedTime { get; set; }
 	public List<GameObject> projectilePool {get; set;}
 
-	public float CurrentScore { get; set; }
-
 	private void Awake()
 	{
 		if (Instance == null)

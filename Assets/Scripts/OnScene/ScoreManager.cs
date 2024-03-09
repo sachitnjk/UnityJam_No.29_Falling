@@ -18,8 +18,12 @@ public class ScoreManager : MonoBehaviour
 
         EventManager.Instance.OnNextlevelTrigger += HandleNextLevelTrigger;
     }
+	private void OnDestroy()
+	{
+        EventManager.Instance.OnNextlevelTrigger += HandleNextLevelTrigger;
+	}
 
-    void Update()
+	void Update()
     {
         if(currentScoreMultiplier > 1f){
             currentScoreMultiplier -= Time.deltaTime * mutliplierDecRateInSec;
@@ -36,15 +40,15 @@ public class ScoreManager : MonoBehaviour
 	{
 		currentScore += amount * (Mathf.Round(currentScoreMultiplier * 10.0f) * 0.1f);
 
-        if(GameManager.Instance != null)
+        if(EventManager.Instance != null) 
         {
-            GameManager.Instance.CurrentScore = currentScore;
+            EventManager.Instance.InvokeOnAddScoreTrigger(currentScore);
         }
-		Debug.Log(GameManager.Instance.CurrentScore);
 	}
 
 	private void HandleNextLevelTrigger()
 	{
+        Debug.Log(currentScore);
 		currentScoreMultiplier = (Mathf.Round(maxScoreMultiplier * 10.0f) * 0.1f);
 	}
 }

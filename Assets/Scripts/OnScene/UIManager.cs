@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,9 +10,11 @@ public class UIManager : MonoBehaviour
 	public static UIManager Instance;
 
 	[SerializeField] private GameObject nextLevelPanel;
+	[SerializeField] private TextMeshProUGUI currentScoreTextBox;
 
-	int currentSceneIndex;
-	int nextSceneIndex;
+	private int currentSceneIndex;
+	private int nextSceneIndex;
+	private float currentUpdatedScore;
 
 	private void Awake()
 	{
@@ -34,10 +37,23 @@ public class UIManager : MonoBehaviour
 		nextSceneIndex = currentSceneIndex + 1;
 
 		EventManager.Instance.OnNextLevelAvailable += HandleOnNextLevelAvailable;
+		EventManager.Instance.OnAddScoreTrigger += HandleOnAddScoreTrigger;
 	}
 	private void OnDestroy()
 	{
 		EventManager.Instance.OnNextLevelAvailable -= HandleOnNextLevelAvailable;
+		EventManager.Instance.OnAddScoreTrigger -= HandleOnAddScoreTrigger;
+	}
+
+	private void IncreaseCurrentSceneIndex()
+	{
+		currentSceneIndex = nextSceneIndex;
+		nextSceneIndex = currentSceneIndex + 1;
+	}
+	private void ResetCurrentScore()
+	{
+		currentUpdatedScore = 0;
+		currentScoreTextBox.text = currentUpdatedScore.ToString();
 	}
 
 	//Button OnClick functions
@@ -52,20 +68,20 @@ public class UIManager : MonoBehaviour
 
 			SceneManager.LoadScene(nextSceneIndex);
 			IncreaseCurrentSceneIndex();
+
+			ResetCurrentScore();
 		}
 	}
 
-	private void IncreaseCurrentSceneIndex()
-	{
-		currentSceneIndex = nextSceneIndex;
-		nextSceneIndex = currentSceneIndex + 1;
-	}
 
 	//Event handles
 	private void HandleOnNextLevelAvailable()
 	{
-		//Debug.Log("going here");
 		GameManager.Instance.SetCanMoveStatus(false);
 		nextLevelPanel.SetActive(true);
+	}
+	private void HandleOnAddScoreTrigger(float amount)
+	{
+		currentScoreTextBox.text = amount.ToString();
 	}
 }

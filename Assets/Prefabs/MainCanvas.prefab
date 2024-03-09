@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7913948959996487995}
   - component: {fileID: 7125430406941204733}
   m_Layer: 5
-  m_Name: ObjectFallPanel
+  m_Name: CurrentScorePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3863104164419711849
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 551, y: 411}
-  m_SizeDelta: {x: -1303.5103, y: -733.2245}
+  m_AnchoredPosition: {x: 33, y: 437}
+  m_SizeDelta: {x: -1401.2673, y: -788.2128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7913948959996487995
 CanvasRenderer:
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 6521119085674305191}
   - component: {fileID: 4905763016359834700}
   m_Layer: 5
-  m_Name: ObjectsLeftText
+  m_Name: CurrentScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 102}
-  m_SizeDelta: {x: 317.2482, y: 83.2525}
+  m_AnchoredPosition: {x: 0, y: 87}
+  m_SizeDelta: {x: 387.6831, y: 101.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6521119085674305191
 CanvasRenderer:
@@ -142,10 +142,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OBJECTS LEFT
+  m_text: CURRENT SCORE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8da33709557cdb74986ed88886055e38, type: 2}
-  m_sharedMaterial: {fileID: -3058553873797529760, guid: 8da33709557cdb74986ed88886055e38, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 768f20444d6bc1245b6ce7f0ee001a04, type: 2}
+  m_sharedMaterial: {fileID: 3187686672452561839, guid: 768f20444d6bc1245b6ce7f0ee001a04, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -169,13 +169,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 6327005344702881861}
   - component: {fileID: 6687194934197973329}
   m_Layer: 5
-  m_Name: ObjectsLeftTextInput
+  m_Name: CurrentScoreTextInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,8 +245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.7, y: -11.8}
-  m_SizeDelta: {x: 82.3594, y: 86.1712}
+  m_AnchoredPosition: {x: -6.7000113, y: -26.799915}
+  m_SizeDelta: {x: 232.3102, y: 86.1712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6327005344702881861
 CanvasRenderer:
@@ -276,10 +276,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 8
+  m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8da33709557cdb74986ed88886055e38, type: 2}
-  m_sharedMaterial: {fileID: -3058553873797529760, guid: 8da33709557cdb74986ed88886055e38, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 768f20444d6bc1245b6ce7f0ee001a04, type: 2}
+  m_sharedMaterial: {fileID: 3187686672452561839, guid: 768f20444d6bc1245b6ce7f0ee001a04, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -303,13 +303,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -951,6 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelPanel: {fileID: 1543846136169435891}
+  currentScoreTextBox: {fileID: 6687194934197973329}
 --- !u!1 &5012652366615723927
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager Instance;
 
 	public Projectile prefabProjectileScript;
-	//[field: SerializeField] public Transform obstacleWallParent{ get; private set; }
+
 	public int currentFallenTopObjects{ get; private set; }
 	public int maxFallenTopObjects{ get; set; }
 	public int currentFallenMidObjects { get; private set; }
@@ -19,9 +19,7 @@ public class GameManager : MonoBehaviour
 	public float elaspedTime { get; set; }
 	public List<GameObject> projectilePool {get; set;}
 
-	public float currentScore {get; set;}
-	public float currentScoreMultiplier {get; set;}
-	public bool isScoreXDecreaseActive { get; set; }
+	public float CurrentScore { get; set; }
 
 	private void Awake()
 	{
@@ -35,7 +33,6 @@ public class GameManager : MonoBehaviour
 		}
 
 		CanMove = true;
-		isScoreXDecreaseActive = true;
 		isTimerActive = true;
 	}
 

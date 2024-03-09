@@ -30,18 +30,21 @@ public class FallenDetector : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.CompareTag("Top") || other.gameObject.CompareTag("Mid")){
-			if(other.GetComponent<ObstacleData>() != null){
+		if (other.gameObject.CompareTag("Top"))
+		{
+			if (other.GetComponent<ObstacleData>() != null)
+			{
 				scoreManager.AddScore(other.GetComponent<ObstacleData>().GetScore());
 			}
-			if(other.gameObject.CompareTag("Top"))
+			OnTopFallen();
+		}
+		else if (other.gameObject.CompareTag("Mid"))
+		{
+			if (other.GetComponent<ObstacleData>() != null)
 			{
-				OnTopFallen();
+				scoreManager.AddScore(other.GetComponent<ObstacleData>().GetScore());
 			}
-			else if(other.gameObject.CompareTag("Mid"))
-			{
-				OnMidFallen();
-			}
+			OnMidFallen();
 		}
 		NextLevelCheck();
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class VFXDisabler : MonoBehaviour
 {
-	[SerializeField] ParticleSystem particleSystem;
+	[SerializeField] private ParticleSystem particleSystem;
 
 	private void Update()
 	{

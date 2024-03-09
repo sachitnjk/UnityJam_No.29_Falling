@@ -4,34 +4,47 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] [Range(1f, 5f)] float maxScoreMultiplier;
-    [SerializeField] [Range(0, 1f)] float mutliplierDecRateInSec;
+	[Range(1f, 5f)]
+	[SerializeField] float maxScoreMultiplier;
+	[Range(0, 1f)]
+	[SerializeField] float mutliplierDecRateInSec;
 
     private float currentScore;
-    float currentScoreMultiplier;
-    // Start is called before the first frame update
-    void Start()
+    private float currentScoreMultiplier;
+
+	void Start()
     {
-        currentScoreMultiplier = maxScoreMultiplier;
-        GameManager.Instance.currentScore = Mathf.Round(currentScore);
-        GameManager.Instance.currentScoreMultiplier = (Mathf.Round(currentScoreMultiplier * 10.0f) * 0.1f);
+        currentScoreMultiplier = (Mathf.Round(maxScoreMultiplier * 10.0f) * 0.1f);
+
+        EventManager.Instance.OnNextlevelTrigger += HandleNextLevelTrigger;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.isScoreXDecreaseActive){
-            if(currentScoreMultiplier > 1f){
-                currentScoreMultiplier -= Time.deltaTime * mutliplierDecRateInSec;
-            }else{
-                currentScoreMultiplier = 1f;
-            }
-            GameManager.Instance.currentScoreMultiplier = (Mathf.Round(currentScoreMultiplier * 10.0f) * 0.1f);
+        if(currentScoreMultiplier > 1f){
+            currentScoreMultiplier -= Time.deltaTime * mutliplierDecRateInSec;
         }
+        else
+        {
+            currentScoreMultiplier = 1f;
+        }
+        currentScoreMultiplier = (Mathf.Round(currentScoreMultiplier * 10.0f) * 0.1f);
     }
 
-    public void AddScore(float amount){
-        currentScore += amount * (Mathf.Round(currentScoreMultiplier * 10.0f) * 0.1f);
-        GameManager.Instance.currentScore = Mathf.Round(currentScore);
-    }
+
+	public void AddScore(float amount)
+	{
+		currentScore += amount * (Mathf.Round(currentScoreMultiplier * 10.0f) * 0.1f);
+
+        if(GameManager.Instance != null)
+        {
+            GameManager.Instance.CurrentScore = currentScore;
+        }
+		Debug.Log(GameManager.Instance.CurrentScore);
+	}
+
+	private void HandleNextLevelTrigger()
+	{
+		currentScoreMultiplier = (Mathf.Round(maxScoreMultiplier * 10.0f) * 0.1f);
+	}
 }

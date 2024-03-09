@@ -630,6 +630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 141346189}
+  - component: {fileID: 141346190}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -654,6 +655,20 @@ Transform:
   - {fileID: 1594412015}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141346190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141346188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a30d6b22acc23d4385087ff975510e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScoreMultiplier: 0
+  mutliplierDecRateInSec: 0
 --- !u!1 &152361478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,6 +1757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxFallenTopObjects: 14
   maxFallenMidObjects: 15
+  scoreManager: {fileID: 141346190}
 --- !u!1 &510445490
 GameObject:
   m_ObjectHideFlags: 0

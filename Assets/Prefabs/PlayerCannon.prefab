@@ -398,6 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trajectorySimulation: {fileID: 258865433919829849}
   projectilePrefab: {fileID: 2357354217491123402, guid: b023c7bd3c8233d4d915f70aa4a168ad, type: 3}
+  prefabProjectileScript: {fileID: 3665535515126367632, guid: b023c7bd3c8233d4d915f70aa4a168ad, type: 3}
   spawnPoint: {fileID: 7490839584134882545}
   shootVelocity: 35
 --- !u!114 &258865433919829849
@@ -414,6 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpawnPoint: {fileID: 7490839584134882545}
   trajectoryLine: {fileID: 8191720218534043633}
+  obstacleWallParent: {fileID: 0}
   maxPhysicsFrameIterations: 100
 --- !u!120 &8191720218534043633
 LineRenderer:

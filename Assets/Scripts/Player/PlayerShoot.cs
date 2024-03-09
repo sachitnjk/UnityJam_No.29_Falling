@@ -12,13 +12,13 @@ public class PlayerShoot : MonoBehaviour
 
 	[SerializeField] private SimulatedProjection trajectorySimulation;
 	[SerializeField] private GameObject projectilePrefab;
+	[SerializeField] private Projectile prefabProjectileScript;
 	[SerializeField] private Transform spawnPoint;
 
 	[SerializeField] private float shootVelocity;
 
 	private GameObject cannonProjectile;
 	private Projectile projectileScript;
-	private Projectile prefabProjectileScript;
 
 	private bool isReloading;
 
@@ -30,10 +30,6 @@ public class PlayerShoot : MonoBehaviour
 			shootAction = playerInput.actions["Shoot"];
 			aimAction = playerInput.actions["Aim"];
 		}
-
-		prefabProjectileScript = GameManager.Instance.prefabProjectileScript;
-
-		//GameManager.Instance.projectilePool = GetProjectilePool();
 	}
 
 	private void Update()
@@ -81,10 +77,4 @@ public class PlayerShoot : MonoBehaviour
 			GameManager.Instance.SetIsReloadStatus(isReloading);
 		}
 	}
-
-	////Change
-	//public List<GameObject> GetProjectilePool()
-	//{
-	//	return ObjectPooler.Instance.GetPooledObject(projectilePrefab);
-	//}
 }

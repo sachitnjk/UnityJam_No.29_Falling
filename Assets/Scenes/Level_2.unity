@@ -860,6 +860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 188522875}
+  - component: {fileID: 188522876}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -884,6 +885,20 @@ Transform:
   - {fileID: 897303308}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188522876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188522874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a30d6b22acc23d4385087ff975510e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScoreMultiplier: 2
+  mutliplierDecRateInSec: 0.5
 --- !u!1001 &206968975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1745,7 +1760,6 @@ GameObject:
   - component: {fileID: 711498597}
   - component: {fileID: 711498596}
   - component: {fileID: 711498595}
-  - component: {fileID: 711498594}
   - component: {fileID: 711498593}
   - component: {fileID: 711498592}
   m_Layer: 0
@@ -1780,19 +1794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabProjectileScript: {fileID: 3665535515126367632, guid: b023c7bd3c8233d4d915f70aa4a168ad, type: 3}
---- !u!114 &711498594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711498590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb050e6dcb81eb40b44ac08527d70c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextLevelPanel: {fileID: 0}
 --- !u!114 &711498595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4622,6 +4623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxFallenTopObjects: 5
   maxFallenMidObjects: 10
+  scoreManager: {fileID: 188522876}
 --- !u!65 &1906986428
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -13,8 +13,10 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private GameObject nextLevelPanel;
 	[SerializeField] private TextMeshProUGUI currentScoreTextBox;
 	[SerializeField] private TextMeshProUGUI currentAmmoTextBox;
+	[SerializeField] private TextMeshProUGUI currentTimerText;
 
 	[SerializeField] private PlayerShoot playerShootScript;
+	[SerializeField] private TimerManager timerManager;
 
 	private int currentSceneIndex;
 	private int nextSceneIndex;
@@ -51,6 +53,7 @@ public class UIManager : MonoBehaviour
 	private void Update()
 	{
 		SetAmmoText();
+		SetCurrentTimerTime();
 	}
 
 	private void IncreaseCurrentSceneIndex()
@@ -65,7 +68,11 @@ public class UIManager : MonoBehaviour
 	}
 	public void SetAmmoText()
 	{
-		currentAmmoTextBox.text = playerShootScript.ReturnAmmoCount();
+		currentAmmoTextBox.text = playerShootScript.GetAmmoCount();
+	}
+	public void SetCurrentTimerTime()
+	{
+		currentTimerText.text = timerManager.GetTimerTime();
 	}
 
 	//Button OnClick functions

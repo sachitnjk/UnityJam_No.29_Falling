@@ -21,11 +21,11 @@ public class FallenDetector : MonoBehaviour
 		GameManager.Instance.maxFallenMidObjects = maxFallenMidObjects;
 		GameManager.Instance.maxFallenTopObjects = maxFallenTopObjects;
 
-		EventManager.Instance.OnNextlevelTrigger += HandleOnNextLevelTrigger;
+		EventManager.Instance.OnNextLevelTrigger += HandleOnNextLevelTrigger;
 	}
 	private void OnDestroy()
 	{
-		EventManager.Instance.OnNextlevelTrigger += HandleOnNextLevelTrigger;
+		EventManager.Instance.OnNextLevelTrigger += HandleOnNextLevelTrigger;
 	}
 
 	private void OnTriggerEnter(Collider other)

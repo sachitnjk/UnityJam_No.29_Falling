@@ -80,7 +80,7 @@ public class PlayerShoot : MonoBehaviour
 		}
 	}
 
-	public string ReturnAmmoCount()
+	public string GetAmmoCount()
 	{
 		var builder = new StringBuilder();
 		int remainingAmmo = 0;

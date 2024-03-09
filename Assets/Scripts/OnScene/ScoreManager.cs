@@ -16,11 +16,11 @@ public class ScoreManager : MonoBehaviour
     {
         currentScoreMultiplier = (Mathf.Round(maxScoreMultiplier * 10.0f) * 0.1f);
 
-        EventManager.Instance.OnNextlevelTrigger += HandleNextLevelTrigger;
+        EventManager.Instance.OnNextLevelTrigger += HandleNextLevelTrigger;
     }
 	private void OnDestroy()
 	{
-        EventManager.Instance.OnNextlevelTrigger += HandleNextLevelTrigger;
+        EventManager.Instance.OnNextLevelTrigger += HandleNextLevelTrigger;
 	}
 
 	void Update()

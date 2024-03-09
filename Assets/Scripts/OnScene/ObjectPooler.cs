@@ -48,11 +48,11 @@ public class ObjectPooler : MonoBehaviour
 
 	private void Start()
 	{
-		EventManager.Instance.OnNextlevelTrigger += HandleOnNextLevelTrigger;
+		EventManager.Instance.OnNextLevelTrigger += HandleOnNextLevelTrigger;
 	}
 	private void OnDestroy()
 	{
-		EventManager.Instance.OnNextlevelTrigger -= HandleOnNextLevelTrigger;
+		EventManager.Instance.OnNextLevelTrigger -= HandleOnNextLevelTrigger;
 	}
 
 	public GameObject GetPooledObject(GameObject prefab)

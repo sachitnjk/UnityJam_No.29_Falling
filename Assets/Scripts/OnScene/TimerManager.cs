@@ -5,23 +5,41 @@ using UnityEngine;
 public class TimerManager : MonoBehaviour
 {
     [SerializeField] private float elaspedTime;
+    private bool timerStop;
 
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-    //     StartTimer();
-    // }
+	private void Start()
+	{
+        timerStop = false;
 
-    // Update is called once per frame
-    void Update()
+        EventManager.Instance.OnNextLevelAvailable += HandleOnNextLevelAvailable;
+        EventManager.Instance.OnNextLevelTrigger += HandleOnNextLevelTrigger;
+	}
+	void Update()
     {
-        if(GameManager.Instance.isTimerActive){
+        if(!timerStop)
+        {
             elaspedTime += Time.deltaTime;
-            GameManager.Instance.elaspedTime = elaspedTime;
+        }
+        else
+        {
+            return;
         }
     }
 
-    public void ResetTimer(){
-        elaspedTime = 0;
+	public string GetTimerTime()
+	{
+		int seconds = Mathf.FloorToInt(elaspedTime % 60);
+		int minutes = Mathf.FloorToInt(elaspedTime / 60);
+        return string.Format("{00:00} : {01:00}", minutes, seconds);
+	}
+
+    private void HandleOnNextLevelAvailable()
+    {
+        timerStop = true;
     }
+	private void HandleOnNextLevelTrigger()
+	{
+        elaspedTime = 0;
+        timerStop = false;
+	}
 }

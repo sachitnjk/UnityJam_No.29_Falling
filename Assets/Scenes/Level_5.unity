@@ -6345,8 +6345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162e14f49a5ca9b49af5bf60ec155f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFallenTopObjects: 5
-  maxFallenMidObjects: 10
+  maxFallenTopObjects: 4
+  maxFallenMidObjects: 6
   scoreManager: {fileID: 188522876}
 --- !u!65 &1906986428
 BoxCollider:

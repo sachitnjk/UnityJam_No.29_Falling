@@ -95,7 +95,7 @@ public class PlayerShoot : MonoBehaviour
 		{
 			if (remainingAmmo > 0)
 			{
-				builder.Append('O');
+				builder.Append('|');
 				remainingAmmo--;
 			}
 			else

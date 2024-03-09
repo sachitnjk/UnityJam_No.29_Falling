@@ -11,9 +11,12 @@ public class UIManager : MonoBehaviour
 	public static UIManager Instance;
 
 	[SerializeField] private GameObject nextLevelPanel;
+	[SerializeField] private GameObject basePanel;
+	[SerializeField] private GameObject endGamePanel;
 	[SerializeField] private TextMeshProUGUI currentScoreTextBox;
 	[SerializeField] private TextMeshProUGUI currentAmmoTextBox;
 	[SerializeField] private TextMeshProUGUI currentTimerText;
+	[SerializeField] private List<TextMeshProUGUI> levelScoreTextFields;
 
 	[SerializeField] private PlayerShoot playerShootScript;
 	[SerializeField] private TimerManager timerManager;
@@ -89,7 +92,37 @@ public class UIManager : MonoBehaviour
 
 			ResetCurrentScore();
 		}
+		else
+		{
+			GameManager.Instance.SetCanMoveStatus(false);
+			EndPanelTrigger();
+		}
 	}
+	public void EndPanelTrigger()
+	{
+		basePanel.SetActive(false);
+		endGamePanel.SetActive(true);
+
+		//if (GameManager.Instance != null && GameManager.Instance.levelScores != null)
+		//{
+		//	for (int i = 0; i < levelScoreTextFields.Count; i++)
+		//	{
+		//		if (i < GameManager.Instance.levelScores.Count)
+		//		{
+		//			levelScoreTextFields[i].text = GameManager.Instance.levelScores[i].ToString();
+		//		}
+		//		else
+		//		{
+		//			levelScoreTextFields[i].text = "";
+		//		}
+		//	}
+		//}
+	}
+	//Call to clear list of recorder scores
+	//public void ResetAllLevelScores()
+	//{
+	//	GameManager.Instance.ResetRecordedScoreList();
+	//}
 
 
 	//Event handles

@@ -9,6 +9,7 @@ public class EventManager : MonoBehaviour
 
 	public Action OnNextLevelAvailable;
 	public Action OnNextlevelTrigger;
+	public Action OnCannonShoot;
 	public Action<float> OnAddScoreTrigger;
 
 	private void Awake()
@@ -36,5 +37,9 @@ public class EventManager : MonoBehaviour
 	public void InvokeOnAddScoreTrigger(float score)
 	{
 		OnAddScoreTrigger?.Invoke(score);
+	}
+	public void InvokeOnCannonShoot()
+	{
+		OnCannonShoot?.Invoke();
 	}
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,9 @@ public class UIManager : MonoBehaviour
 
 	[SerializeField] private GameObject nextLevelPanel;
 	[SerializeField] private TextMeshProUGUI currentScoreTextBox;
+	[SerializeField] private TextMeshProUGUI currentAmmoTextBox;
+
+	[SerializeField] private PlayerShoot playerShootScript;
 
 	private int currentSceneIndex;
 	private int nextSceneIndex;
@@ -44,6 +48,10 @@ public class UIManager : MonoBehaviour
 		EventManager.Instance.OnNextLevelAvailable -= HandleOnNextLevelAvailable;
 		EventManager.Instance.OnAddScoreTrigger -= HandleOnAddScoreTrigger;
 	}
+	private void Update()
+	{
+		SetAmmoText();
+	}
 
 	private void IncreaseCurrentSceneIndex()
 	{
@@ -55,11 +63,14 @@ public class UIManager : MonoBehaviour
 		currentUpdatedScore = 0;
 		currentScoreTextBox.text = currentUpdatedScore.ToString();
 	}
+	public void SetAmmoText()
+	{
+		currentAmmoTextBox.text = playerShootScript.ReturnAmmoCount();
+	}
 
 	//Button OnClick functions
 	public void ResetNextLevelPanel()
 	{
-
 		if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
 		{
 			EventManager.Instance.InvokeOnNextLevelTrigger();

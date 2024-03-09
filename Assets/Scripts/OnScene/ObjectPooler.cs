@@ -10,8 +10,8 @@ public class ObjectPooler : MonoBehaviour
 	public class PoolInfo
 	{
 		public GameObject prefab;
-		public int countToPool = 20;
 		public Transform parentTransform;
+		public int countToPool = 20;
 	}
 
 	[SerializeField] public List<PoolInfo> pools;
@@ -48,11 +48,11 @@ public class ObjectPooler : MonoBehaviour
 
 	private void Start()
 	{
-		EventManager.Instance.OnNextlevelTrigger += HandleOnNextDayTrigger;
+		EventManager.Instance.OnNextlevelTrigger += HandleOnNextLevelTrigger;
 	}
 	private void OnDestroy()
 	{
-		EventManager.Instance.OnNextlevelTrigger -= HandleOnNextDayTrigger;
+		EventManager.Instance.OnNextlevelTrigger -= HandleOnNextLevelTrigger;
 	}
 
 	public GameObject GetPooledObject(GameObject prefab)
@@ -71,18 +71,26 @@ public class ObjectPooler : MonoBehaviour
 
 		return null;
 	}
+	public List<GameObject> GetPooledObjectsList(GameObject prefab) 
+	{
+		if(pooledObjects.ContainsKey(prefab))
+		{
+			return pooledObjects[prefab];
+		}
+		return null;
+	}
 
 	public void ResetAllPooledObjects()
 	{
-		foreach (var kvp in pooledObjects)
+		foreach (var keyValuePair in pooledObjects)
 		{
-			foreach (var obj in kvp.Value)
+			foreach (var obj in keyValuePair.Value)
 			{
 				obj.SetActive(false);
 			}
 		}
 	}
-	private void HandleOnNextDayTrigger()
+	private void HandleOnNextLevelTrigger()
 	{
 		ResetAllPooledObjects();
 	}

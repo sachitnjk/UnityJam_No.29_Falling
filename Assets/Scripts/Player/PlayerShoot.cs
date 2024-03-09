@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -76,5 +78,31 @@ public class PlayerShoot : MonoBehaviour
 
 			GameManager.Instance.SetIsReloadStatus(isReloading);
 		}
+	}
+
+	public string ReturnAmmoCount()
+	{
+		var builder = new StringBuilder();
+		int remainingAmmo = 0;
+		foreach (GameObject projectilePool in ObjectPooler.Instance.GetPooledObjectsList(projectilePrefab))
+		{
+			if (!projectilePool.activeSelf)
+			{
+				remainingAmmo++;
+			}
+		}
+		for (int i = 0; i < ObjectPooler.Instance.GetPooledObjectsList(projectilePrefab).Count; i++)
+		{
+			if (remainingAmmo > 0)
+			{
+				builder.Append('O');
+				remainingAmmo--;
+			}
+			else
+			{
+				builder.Append('X');
+			}
+		}
+		return builder.ToString();
 	}
 }

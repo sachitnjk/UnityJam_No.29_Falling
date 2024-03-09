@@ -13,6 +13,7 @@ public class TimerManager : MonoBehaviour
 
         EventManager.Instance.OnNextLevelAvailable += HandleOnNextLevelAvailable;
         EventManager.Instance.OnNextLevelTrigger += HandleOnNextLevelTrigger;
+		EventManager.Instance.OnLevelReset += HandleOnLevelReset;
 	}
 	void Update()
     {
@@ -41,5 +42,12 @@ public class TimerManager : MonoBehaviour
 	{
         elaspedTime = 0;
         timerStop = false;
+	}
+    private void HandleOnLevelReset()
+    {
+		timerStop = true;
+
+		elaspedTime = 0;
+		timerStop = false;
 	}
 }

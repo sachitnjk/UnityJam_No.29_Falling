@@ -49,10 +49,12 @@ public class ObjectPooler : MonoBehaviour
 	private void Start()
 	{
 		EventManager.Instance.OnNextLevelTrigger += HandleOnNextLevelTrigger;
+		EventManager.Instance.OnLevelReset += HandleOnLevelReset;
 	}
 	private void OnDestroy()
 	{
 		EventManager.Instance.OnNextLevelTrigger -= HandleOnNextLevelTrigger;
+		EventManager.Instance.OnLevelReset -= HandleOnLevelReset;
 	}
 
 	public GameObject GetPooledObject(GameObject prefab)
@@ -91,6 +93,10 @@ public class ObjectPooler : MonoBehaviour
 		}
 	}
 	private void HandleOnNextLevelTrigger()
+	{
+		ResetAllPooledObjects();
+	}
+	private void HandleOnLevelReset()
 	{
 		ResetAllPooledObjects();
 	}

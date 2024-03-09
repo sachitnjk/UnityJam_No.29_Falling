@@ -9,6 +9,7 @@ public class EventManager : MonoBehaviour
 
 	public Action OnNextLevelAvailable;
 	public Action OnNextLevelTrigger;
+	public Action OnLevelReset;
 	public Action OnCannonShoot;
 	public Action<float> OnAddScoreTrigger;
 
@@ -26,6 +27,10 @@ public class EventManager : MonoBehaviour
 	}
 
 	//Action event invoke functions
+	public void InvokeOnLevelReset()
+	{
+		OnLevelReset?.Invoke();
+	}
 	public void InvokeOnNextLevelAvailable()
 	{
 		OnNextLevelAvailable?.Invoke();

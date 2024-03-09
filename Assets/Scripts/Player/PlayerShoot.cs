@@ -5,12 +5,14 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerShoot : MonoBehaviour
 {
 	private PlayerInput playerInput;
 	private InputAction shootAction;
 	private InputAction aimAction;
+	private InputAction resetLevel;
 
 	[SerializeField] private SimulatedProjection trajectorySimulation;
 	[SerializeField] private GameObject projectilePrefab;
@@ -31,6 +33,7 @@ public class PlayerShoot : MonoBehaviour
 		{
 			shootAction = playerInput.actions["Shoot"];
 			aimAction = playerInput.actions["Aim"];
+			resetLevel = playerInput.actions["resetLevel"];
 		}
 	}
 
@@ -40,6 +43,7 @@ public class PlayerShoot : MonoBehaviour
 		{
 			Shoot();
 			Aim();
+			ResetLevelCheck();
 		}
 	}
 
@@ -77,6 +81,16 @@ public class PlayerShoot : MonoBehaviour
 			}
 
 			GameManager.Instance.SetIsReloadStatus(isReloading);
+		}
+	}
+	private void ResetLevelCheck()
+	{
+		if(resetLevel.WasPerformedThisFrame()) 
+		{
+			string currentSceneName = SceneManager.GetActiveScene().name;
+			SceneManager.LoadScene(currentSceneName);
+
+			EventManager.Instance.InvokeOnLevelReset();
 		}
 	}
 

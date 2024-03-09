@@ -17,10 +17,12 @@ public class ScoreManager : MonoBehaviour
         currentScoreMultiplier = (Mathf.Round(maxScoreMultiplier * 10.0f) * 0.1f);
 
         EventManager.Instance.OnNextLevelTrigger += HandleNextLevelTrigger;
-    }
+		EventManager.Instance.OnLevelReset += HandleOnLevelReset;
+	}
 	private void OnDestroy()
 	{
         EventManager.Instance.OnNextLevelTrigger += HandleNextLevelTrigger;
+		EventManager.Instance.OnLevelReset -= HandleOnLevelReset;
 	}
 
 	void Update()
@@ -51,4 +53,10 @@ public class ScoreManager : MonoBehaviour
         Debug.Log(currentScore);
 		currentScoreMultiplier = (Mathf.Round(maxScoreMultiplier * 10.0f) * 0.1f);
 	}
+    private void HandleOnLevelReset()
+    {
+        currentScore = 0;
+        EventManager.Instance.InvokeOnAddScoreTrigger(currentScore);
+		currentScoreMultiplier = (Mathf.Round(maxScoreMultiplier * 10.0f) * 0.1f);
+    }
 }

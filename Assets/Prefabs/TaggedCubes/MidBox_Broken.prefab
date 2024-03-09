@@ -277,6 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7325405725703734265}
+  - component: {fileID: 4241018724444968723}
   m_Layer: 15
   m_Name: MidBox_Broken
   m_TagString: Mid
@@ -306,6 +307,19 @@ Transform:
   - {fileID: 5409050255510684391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4241018724444968723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2799778069677783768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09643ad68b5bb7449aef787ff377cdd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 200
 --- !u!1 &3146662347410175378
 GameObject:
   m_ObjectHideFlags: 0

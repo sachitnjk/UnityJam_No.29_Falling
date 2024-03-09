@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class FallenDetector : MonoBehaviour
 {
-	[SerializeField] private int maxFallenTopObjects;
-	[SerializeField] private int maxFallenMidObjects;
+	[SerializeField] int maxFallenTopObjects;
+	[SerializeField] int maxFallenMidObjects;
+	[SerializeField] ScoreManager scoreManager;
 
 	private int currentFallenTopCount;
 	private int currentFallenMidCount;
@@ -17,6 +18,9 @@ public class FallenDetector : MonoBehaviour
 			ResetFallenObjectsCount(0);
 		}
 
+		GameManager.Instance.maxFallenMidObjects = maxFallenMidObjects;
+		GameManager.Instance.maxFallenTopObjects = maxFallenTopObjects;
+
 		EventManager.Instance.OnNextlevelTrigger += HandleOnNextLevelTrigger;
 	}
 	private void OnDestroy()
@@ -26,13 +30,18 @@ public class FallenDetector : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.gameObject.CompareTag("Top"))
-		{
-			OnTopFallen();
-		}
-		else if(other.gameObject.CompareTag("Mid"))
-		{
-			OnMidFallen();
+		if(other.gameObject.CompareTag("Top") || other.gameObject.CompareTag("Mid")){
+			if(other.GetComponent<ObstacleData>() != null){
+				scoreManager.AddScore(other.GetComponent<ObstacleData>().GetScore());
+			}
+			if(other.gameObject.CompareTag("Top"))
+			{
+				OnTopFallen();
+			}
+			else if(other.gameObject.CompareTag("Mid"))
+			{
+				OnMidFallen();
+			}
 		}
 		NextLevelCheck();
 

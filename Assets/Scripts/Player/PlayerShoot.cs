@@ -18,10 +18,13 @@ public class PlayerShoot : MonoBehaviour
 	[SerializeField] private GameObject projectilePrefab;
 	[SerializeField] private Projectile prefabProjectileScript;
 	[SerializeField] private Transform spawnPoint;
-
+	[SerializeField] private AudioClip cannonShootAudio;
+	[SerializeField] private AudioSource cannoAudioSource;
+	[SerializeField] private GameObject cannonShootSmoke;
 	[SerializeField] private float shootVelocity;
 
 	private GameObject cannonProjectile;
+	private GameObject cannonShootEffect;
 	private Projectile projectileScript;
 
 	private bool isReloading;
@@ -64,6 +67,7 @@ public class PlayerShoot : MonoBehaviour
 		if(shootAction != null && shootAction.WasPerformedThisFrame())
 		{
 			cannonProjectile = ObjectPooler.Instance.GetPooledObject(projectilePrefab);
+			cannonShootEffect = ObjectPooler.Instance.GetPooledObject(cannonShootSmoke);
 
 			if(cannonProjectile != null) 
 			{
@@ -71,9 +75,14 @@ public class PlayerShoot : MonoBehaviour
 
 				projectileScript = cannonProjectile.GetComponent<Projectile>();
 
+				cannoAudioSource.PlayOneShot(cannonShootAudio);
+
 				cannonProjectile.SetActive(true);
 				cannonProjectile.transform.position = spawnPoint.position;
 				projectileScript.Init(spawnPoint.up * shootVelocity, false);
+
+				cannonShootEffect.transform.position = spawnPoint.position;
+				cannonShootEffect.SetActive(true);
 			}
 			else
 			{

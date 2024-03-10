@@ -10,6 +10,8 @@ public class ExplosiveBox : MonoBehaviour
 	[SerializeField] private float explodeForce = 100f;
 
 	[SerializeField] private GameObject explosionEffect;
+	[SerializeField] private AudioSource explosionSource;
+
 
 	private const int maxDetectedColliders = 300;
 	private void OnCollisionEnter(Collision collision)
@@ -46,6 +48,7 @@ public class ExplosiveBox : MonoBehaviour
 			//rememebr to call the particles and sound here
 			GameObject explosionParticles = ObjectPooler.Instance.GetPooledObject(explosionEffect);
 			explosionParticles.transform.position = transform.position;
+			explosionSource.PlayOneShot(explosionSource.clip);
 			explosionParticles.SetActive(true);
 
 			this.gameObject.SetActive(false);

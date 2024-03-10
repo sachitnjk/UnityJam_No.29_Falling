@@ -150,3 +150,4 @@ MonoBehaviour:
   explodeRadius: 5
   explodeForce: 350
   explosionEffect: {fileID: 121052, guid: 45b74d42e5559bf49a14a707b4842b51, type: 3}
+  explosionSource: {fileID: 0}

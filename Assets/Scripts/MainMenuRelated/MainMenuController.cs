@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
@@ -10,6 +11,9 @@ public class MainMenuController : MonoBehaviour
 	[SerializeField] private GameObject audioPanel;
 	[SerializeField] private GameObject controlsPanel;
 
+	[SerializeField] private AudioMixer audioMixer;
+	[SerializeField] private AudioSource audioSource;
+
 	public void PlayButton()
 	{
 		SceneManager.LoadScene(1);
@@ -18,6 +22,14 @@ public class MainMenuController : MonoBehaviour
 	{
 		mainMenuPanel.SetActive(false);
 		settingsPanel.SetActive(true);
+	}
+	public void ChangeBGMVolume(float volume)
+	{
+		audioMixer.SetFloat("BGMVolume", Mathf.Log10(volume) * 20);
+	}
+	public void ChangeMasterVolume(float volume)
+	{
+		audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
 	}
 	public void OpenAudio()
 	{
@@ -43,5 +55,10 @@ public class MainMenuController : MonoBehaviour
 	public void ExitGame()
 	{
 		Application.Quit();
+	}
+
+	public void PlayButtonClickSound()
+	{
+		audioSource.PlayOneShot(audioSource.clip);
 	}
 }

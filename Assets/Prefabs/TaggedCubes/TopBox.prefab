@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenVersion: {fileID: 4232890716665933702, guid: 934eaea8f5284b645b2019e801955c3b, type: 3}
-  breakForce: 10
+  breakForce: 4
   onCollisionMultiplier: 100
 --- !u!114 &-7950323576752262119
 MonoBehaviour:

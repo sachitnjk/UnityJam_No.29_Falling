@@ -10,6 +10,7 @@ public class FallenDetector : MonoBehaviour
 
 	private int currentFallenTopCount;
 	private int currentFallenMidCount;
+	private bool nextLevelAvailableCalled;
 
 	private void Start()
 	{
@@ -21,11 +22,13 @@ public class FallenDetector : MonoBehaviour
 		GameManager.Instance.maxFallenMidObjects = maxFallenMidObjects;
 		GameManager.Instance.maxFallenTopObjects = maxFallenTopObjects;
 
+		nextLevelAvailableCalled = false;
+
 		EventManager.Instance.OnNextLevelTrigger += HandleOnNextLevelTrigger;
 	}
 	private void OnDestroy()
 	{
-		EventManager.Instance.OnNextLevelTrigger += HandleOnNextLevelTrigger;
+		EventManager.Instance.OnNextLevelTrigger -= HandleOnNextLevelTrigger;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -67,14 +70,16 @@ public class FallenDetector : MonoBehaviour
 	}
 	private void NextLevelCheck()
 	{
-		if(currentFallenTopCount >= maxFallenTopObjects && currentFallenMidCount >= maxFallenMidObjects)
+		if(currentFallenTopCount >= maxFallenTopObjects && currentFallenMidCount >= maxFallenMidObjects && !nextLevelAvailableCalled)
 		{
+			nextLevelAvailableCalled = true;
 			EventManager.Instance.InvokeOnNextLevelAvailable();
 		}
 	}
 
 	private void HandleOnNextLevelTrigger()
 	{
+		nextLevelAvailableCalled = false;
 		ResetFallenObjectsCount(0);
 	}
 }

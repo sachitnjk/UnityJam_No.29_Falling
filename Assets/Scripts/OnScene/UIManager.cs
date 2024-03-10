@@ -94,6 +94,7 @@ public class UIManager : MonoBehaviour
 		}
 		else
 		{
+			EventManager.Instance.InvokeOnNextLevelTrigger();
 			GameManager.Instance.SetCanMoveStatus(false);
 			EndPanelTrigger();
 		}
@@ -103,26 +104,30 @@ public class UIManager : MonoBehaviour
 		basePanel.SetActive(false);
 		endGamePanel.SetActive(true);
 
-		//if (GameManager.Instance != null && GameManager.Instance.levelScores != null)
-		//{
-		//	for (int i = 0; i < levelScoreTextFields.Count; i++)
-		//	{
-		//		if (i < GameManager.Instance.levelScores.Count)
-		//		{
-		//			levelScoreTextFields[i].text = GameManager.Instance.levelScores[i].ToString();
-		//		}
-		//		else
-		//		{
-		//			levelScoreTextFields[i].text = "";
-		//		}
-		//	}
-		//}
+		if (GameManager.Instance != null && GameManager.Instance.AllLevelScores != null)
+		{
+			for (int i = 0; i < levelScoreTextFields.Count; i++)
+			{
+				if (i < GameManager.Instance.AllLevelScores.Count)
+				{
+					levelScoreTextFields[i].text = GameManager.Instance.AllLevelScores[i].ToString();
+				}
+				else
+				{
+					levelScoreTextFields[i].text = "";
+				}
+			}
+		}
+	}
+	public void ExitGame()
+	{
+		Application.Quit();
 	}
 	//Call to clear list of recorder scores
-	//public void ResetAllLevelScores()
-	//{
-	//	GameManager.Instance.ResetRecordedScoreList();
-	//}
+	public void ResetAllLevelScores()
+	{
+		GameManager.Instance.ResetRecordedScoreList();
+	}
 
 
 	//Event handles

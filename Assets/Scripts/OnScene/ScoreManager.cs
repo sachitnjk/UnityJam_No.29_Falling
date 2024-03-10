@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -21,7 +22,7 @@ public class ScoreManager : MonoBehaviour
 	}
 	private void OnDestroy()
 	{
-        EventManager.Instance.OnNextLevelTrigger += HandleNextLevelTrigger;
+        EventManager.Instance.OnNextLevelTrigger -= HandleNextLevelTrigger;
 		EventManager.Instance.OnLevelReset -= HandleOnLevelReset;
 	}
 
@@ -50,7 +51,7 @@ public class ScoreManager : MonoBehaviour
 
 	private void HandleNextLevelTrigger()
 	{
-        Debug.Log(currentScore);
+        GameManager.Instance.AddToAllLevelScore(currentScore);
 		currentScoreMultiplier = (Mathf.Round(maxScoreMultiplier * 10.0f) * 0.1f);
 	}
     private void HandleOnLevelReset()

@@ -15,6 +15,12 @@ public class TimerManager : MonoBehaviour
         EventManager.Instance.OnNextLevelTrigger += HandleOnNextLevelTrigger;
 		EventManager.Instance.OnLevelReset += HandleOnLevelReset;
 	}
+	private void OnDestroy()
+	{
+		EventManager.Instance.OnNextLevelAvailable -= HandleOnNextLevelAvailable;
+		EventManager.Instance.OnNextLevelTrigger -= HandleOnNextLevelTrigger;
+		EventManager.Instance.OnLevelReset -= HandleOnLevelReset;
+	}
 	void Update()
     {
         if(!timerStop)

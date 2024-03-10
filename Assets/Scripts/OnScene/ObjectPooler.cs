@@ -25,6 +25,11 @@ public class ObjectPooler : MonoBehaviour
 			Instance = this;
 			DontDestroyOnLoad(this);
 		}
+		else
+		{
+			Destroy(this.gameObject);
+			return;
+		}
 		pooledObjects = new Dictionary<GameObject, List<GameObject>>();
 
 		// Create pools for each specified prefab

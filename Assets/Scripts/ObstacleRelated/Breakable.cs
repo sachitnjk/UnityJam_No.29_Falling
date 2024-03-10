@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Breakable : MonoBehaviour
@@ -16,10 +17,9 @@ public class Breakable : MonoBehaviour
 		if(collision.relativeVelocity.magnitude >= breakForce)
 		{
 			isBroken = true;
-			GameObject altVersion = ObjectPooler.Instance.GetPooledObject(brokenVersion);
-			altVersion.transform.position = this.gameObject.transform.position;
-			altVersion.transform.localScale = this.gameObject.transform.localScale;
-			altVersion.gameObject.SetActive(true);
+
+			GameObject altVersion = GameObject.Instantiate(brokenVersion, this.transform.position, this.transform.rotation);
+			altVersion.transform.localScale = this.gameObject.transform.lossyScale;
 
 			var brokenRbs = altVersion.GetComponentsInChildren<Rigidbody>();
 			foreach(var rb in brokenRbs) 
